@@ -1154,8 +1154,8 @@ One then needs to define the erosion constants in CASCADE
 [dp]diffusion_erosion is the diffusion erosion constant in m^2/yr
 (4d-2 32d-2)
 
-      fluvial_erosion = 1.d-6
-      diffusion_erosion = 1.d-6
+      fluvial_erosion = 0.0
+      diffusion_erosion = 0.0
       precipitation = 1.0
 
       fluvial_erosion_type = 0
