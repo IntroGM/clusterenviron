@@ -1,0 +1,40 @@
+0  ! post-processor input file major version
+5  ! post-processor input file minor version
+0  ! post-processor input file stat version
+1  ! 1 = natural units output, 0=DOUAR units
+0  ! output u scalar field 
+0  ! output v scalar field 
+0  ! output w scalar field 
+1  ! output total velocity vectors 
+1  ! output mechanical velocity vectors
+1  ! output isostasy velocity vectors
+0  ! output compaction velocity vectors
+0  ! output disp=sqrt(u**2+v**2+w**2) field
+1  ! output nodal pressure field 
+1  ! output raw elemental pressure field 
+1  ! output smooth elemental pressure field
+1  ! output hydrostatic pressure field
+0  ! output countnode field
+0  ! output temperature field
+1  ! output elemental material number
+1  ! output e2d field at elements 
+1  ! output e2d field at nodes
+1  ! output effective viscosity at elements 
+1  ! output whether element is plastic
+1  ! output elemental yield ratio
+1  ! output elemental friction angle
+1  ! output elemental compaction_density
+0  ! output elemental dilatation rate
+0  ! output refinement criterion field
+1  ! output strain field
+0  ! output lsf's
+1  ! output_surface_icon   (-> norm<i>.vtk)
+0  ! output_surface_convexhull (-> field in norm<i>.vtk)
+0  ! output_strain_tensor  (-> strain.vtk)
+0  ! output_ps             (-> compressive.vtk)
+0  ! output_cubes          (-> cubes.vtk)
+0  ! output_rivers         (-> rivers.vtk)
+0  ! output_regular        (-> regular.vtk)
+0  ! output_zisodisp       (-> zisodisp.vtk)
+0  ! output_cloud          (-> cloud.vtk)
+0  ! output_cloud0         (-> cloud0.vtk)

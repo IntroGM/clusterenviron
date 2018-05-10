@@ -1,0 +1,85 @@
+#! /bin/bash
+# -*- mode: sh; eval:(sh-set-shell "bash"); -*-
+########################################################################
+#            Global Bash initialization: Main
+#
+# Author: Roland Fehrenbacher, rf@q-leap.de
+#
+# Copyright (C) 2014 Q-Leap Networks, Roland Fehrenbacher
+#
+#    This program is free software; you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation; either version 2 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program; if not, write to the Free Software
+#    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307
+#    USA
+#
+########################################################################
+#
+# Do not change the following 4 lines, otherwise things might get severely
+# broken, and you are on your own.
+#
+GLOBAL_BASHRC=/etc/qlustar/common/skel/bash/bashrc
+if [ -f $GLOBAL_BASHRC ]; then
+  . ${GLOBAL_BASHRC}
+fi
+#
+#******************************************************************************
+#/////////////////////////// Source Bash variables \\\\\\\\\\\\\\\\\\\\\\\\\\\\
+#******************************************************************************
+#
+if [ -f ${USER_BASH_DIR}/bash-vars ]; then
+  . ${USER_BASH_DIR}/bash-vars
+fi
+#
+#******************************************************************************
+#//////////// Source Architecture-independent Environment variables \\\\\\\\\\\
+#******************************************************************************
+#
+if [ -f ${USER_BASH_DIR}/env ]; then
+  . ${USER_BASH_DIR}/env
+fi
+#
+#******************************************************************************
+#////////////////////////////// USER ALIASES \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+#******************************************************************************
+#
+if [ -f ${USER_BASH_DIR}/alias ]; then
+  . ${USER_BASH_DIR}/alias
+fi
+#
+#******************************************************************************
+#/////////////////////////// Source Bash functions \\\\\\\\\\\\\\\\\\\\\\\\\\\\
+#******************************************************************************
+#
+if [ -f ${USER_BASH_DIR}/functions ]; then
+  . ${USER_BASH_DIR}/functions
+fi
+
+
+
+export MKL_NUM_THREADS=1
+export MALLOC_TRIM_THRESHOLD=100000000
+export MALLOC_MMAP_MAX_=0
+export WSMPLICPATH=/data/home/dwhipp/software/wsmp
+export WRKDIR=/globalscratch/${USER}
+
+module load intel
+module load mvapich2
+
+
+function dcd() {
+  DCD_NUM=$1
+  DCD_BASEDIR=${WRKDIR}/douar
+  DCD_OUTFILE=`ls $DCD_BASEDIR/*/*_o$1`
+  DCD_NEWDIR=`dirname $DCD_OUTFILE`
+  cd $DCD_NEWDIR
+}
